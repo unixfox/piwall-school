@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Variables
+
+NOMFICHIER="video.avi"
+MASTER_COMMANDE="avconv -re -i /home/pi/Videos/$NOMFICHIER -vcodec copy -f avi -an udp://239.0.1.23:1234"
+CLIENT_COMMANDE='sudo systemctl start piwallclient'
+
+# Corps du script
+
+for n in 1 2 3 4 5 6
+do
+  while ! nc -w 5 -z 192.168.0."$n" 22 &> /dev/null; do echo; done
+  ssh -i /home/pi/.ssh/id_rsa pi@192.168.0."$n" $CLIENT_COMMANDE
+done
+
+sleep 5s
+
+while true; do $MASTER_COMMANDE; sleep 1; done
