@@ -1,0 +1,11 @@
+[Unit]
+Description=Piwall Client
+
+[Service]
+ExecStart=/usr/bin/pwomxplayer --autotile udp://239.0.1.23:1234?buffer_size=1200000B
+Environment=DISPLAY=0
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
