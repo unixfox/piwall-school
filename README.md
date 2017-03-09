@@ -1,7 +1,7 @@
 # Piwall setup guide
 
 ## Configuration of each raspberry pi client
-1. First, replace the file `/etc/networking/interfaces` with this content:
+1.First, replace the file `/etc/networking/interfaces` with this content:
 ```
 auto eth0
 iface eth0 inet static
@@ -10,8 +10,8 @@ iface eth0 inet static
  up route add -net 224.0.0.0 netmask 240.0.0.0 eth0
  ```
  **Note**: Change the last number of the IP address for the second raspberry pi and so on.
- 
- 2. Add the file `/home/pi/.pititle` with this content:
+
+2.Add the file `/home/pi/.pititle` with this content:
  ```
 [tile]
 id=a
