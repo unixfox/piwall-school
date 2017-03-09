@@ -1,0 +1,11 @@
+[Unit]
+Description=Piwall Server
+
+[Service]
+ExecStart=/home/pi/piwall
+User=pi
+Group=pi
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
